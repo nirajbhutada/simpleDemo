@@ -1,0 +1,20 @@
+function checkInputType(activeInput,keyword){
+      var inputType = activeInput.getAttribute('data-keyrule');
+      var updatedKeyword = '';
+      switch(inputType){
+        case 'alpha':
+          updatedKeyword = keyword.replace(/[0-9]/g, '').trim();
+          break;
+        case 'alpha number':
+          updatedKeyword = keyword.trim();
+          break;
+        case 'number':
+          updatedKeyword = keyword.replace(/[a-z, A-Z]/g, '').trim();
+          break;
+        case 'default':
+          updatedKeyword = keyword;
+          break;
+      }
+      // console.log('updatedKeyword -'+updatedKeyword)
+      return updatedKeyword.replace(/\s+/g, " ");
+     }
